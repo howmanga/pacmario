@@ -1,0 +1,28 @@
+music.setTempo(360)
+let mario = ["E4:3", "E4:3", "R:3", "E4:3", "R:3", "C4:3", "E4:3", "R:3", "G4:3", "R:9", "G3:3", "R:9", "C4:3", "R:6", "G3:3", "R:6", "E3:3", "R:3", "R:3", "A3:3", "R:3", "B3:3", "R:3", "Bb3:3", "A3:3", "R:3", "G3:4", "E4:4", "G4:4", "A4:3", "R:3", "F4:3", "G4:3", "R:3", "E4:3", "R:3", "C4:3", "D4:3", "B3:3", "R:3"]
+music.beginMelody(mario, MelodyOptions.Once)
+images.iconImage(IconNames.Tortoise).scrollImage(1, 200)
+basic.pause(6000)
+music.setTempo(240)
+let pacman = ["R:1", "B3:2", "B4:2", "F#:2", "Eb4:2", "B4:2", "F#4:2", "Eb4:4", "C4:2", "C5:2", "G4:2", "E4:2", "C5:2", "G4:2", "E4:4", "B3:2", "B4:2", "F#:2", "Eb4:2", "B4:2", "F#4:2", "Eb4:4", "Eb4:1", "E4:1", "F4:2", "F4:1", "F#4:1", "G4:2", "G4:1", "Ab4:1", "A4:2", "B4:4"]
+music.beginMelody(pacman, MelodyOptions.Once)
+images.iconImage(IconNames.Ghost).scrollImage(1, 200)
+basic.pause(3500)
+images.iconImage(IconNames.Happy).showImage(0)
+music.setTempo(120)
+music.beginMelody(music.builtInMelody(Melodies.PowerUp), MelodyOptions.Once)
+basic.pause(1500)
+music.beginMelody(music.builtInMelody(Melodies.Baddy), MelodyOptions.Once)
+images.iconImage(IconNames.Ghost).scrollImage(1, 200)
+basic.pause(1000)
+for (let index = 0; index <= 80; index++) {
+    led.toggle(Math.randomRange(0, 4), Math.randomRange(0, 4))
+    basic.pause(1)
+    music.playTone(Math.randomRange(184, 186), 0)
+}
+music.playTone(185, 200)
+images.iconImage(IconNames.Skull).showImage(0)
+basic.pause(500)
+images.iconImage(IconNames.Sad).showImage(0)
+music.beginMelody(music.builtInMelody(Melodies.PowerDown), MelodyOptions.Once)
+music.playTone(440, music.beat(BeatFraction.Whole))
